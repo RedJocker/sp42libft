@@ -1,0 +1,8 @@
+# emacs temp
+*~
+\#*\#
+
+# bins and deps
+*.o
+*.d
+*.a
