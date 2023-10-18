@@ -6,7 +6,7 @@
 #    By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 16:14:38 by maurodri          #+#    #+#              #
-#    Updated: 2023/10/17 11:54:27 by maurodri         ###   ########.fr        #
+#    Updated: 2023/10/18 01:01:10 by maurodri         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -34,6 +34,9 @@ FILES = ft_isalpha.c \
 		ft_atoi.c \
 		ft_calloc.c \
 		ft_strdup.c \
+		ft_substr.c \
+		ft_strjoin.c \
+		ft_strtrim.c \
 
 DEP_FILES = $(patsubst %.c,%.d,$(FILES))
 OBJS = $(patsubst %.c,%.o,$(FILES))
