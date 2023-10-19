@@ -6,7 +6,7 @@
 /*   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 01:01:27 by maurodri          #+#    #+#             */
-/*   Updated: 2023/10/18 02:20:20 by maurodri         ###   ########.fr       */
+/*   Updated: 2023/10/18 12:20:10 by maurodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ static int	includes(char const *set, char ch)
 	return (0);
 }
 
-
 static void	point_start(char const **str, char const *set)
 {
 	while (includes(set, **str))
@@ -34,6 +33,7 @@ static void	point_start(char const **str, char const *set)
 static size_t	trimmed_len(char const *str, char const *set)
 {
 	int	len;
+
 	len = 0;
 	while (str[len])
 		len++;
@@ -43,7 +43,7 @@ static size_t	trimmed_len(char const *str, char const *set)
 	return (++len);
 }
 
-char *ft_strtrim(char const *str, char const *set)
+char	*ft_strtrim(char const *str, char const *set)
 {
 	size_t	size;
 	char	*trimmed;

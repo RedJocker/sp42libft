@@ -6,7 +6,7 @@
 /*   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:28:57 by maurodri          #+#    #+#             */
-/*   Updated: 2023/10/17 20:40:19 by maurodri         ###   ########.fr       */
+/*   Updated: 2023/10/18 12:20:53 by maurodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_substr(char const *str, unsigned int start, size_t len)
 	size_t	sub_size;
 
 	if (!str)
-		return NULL;
+		return (NULL);
 	str_len = ft_strlen(str);
 	if (start >= str_len)
 	{
