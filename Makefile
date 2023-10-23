@@ -6,7 +6,7 @@
 #    By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 16:14:38 by maurodri          #+#    #+#              #
-#    Updated: 2023/10/23 14:58:15 by maurodri         ###   ########.fr        #
+#    Updated: 2023/10/23 15:35:49 by maurodri         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -75,4 +75,3 @@ clean:
 	rm -fr $(OBJS) $(DEP_FILES)
 
 -include $(DEP_FILES)
-
