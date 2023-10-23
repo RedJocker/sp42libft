@@ -6,3 +6,7 @@
 *.o
 *.d
 *.a
+
+# tests
+
+**/tests/

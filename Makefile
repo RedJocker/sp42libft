@@ -6,11 +6,11 @@
 #    By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 16:14:38 by maurodri          #+#    #+#              #
-#    Updated: 2023/10/23 15:35:49 by maurodri         ###   ########.fr        #
+#    Updated: 2023/10/23 17:06:43 by maurodri         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
-LIB_NAME = libft.a
+NAME = libft.a
 FILES = ft_isalpha.c \
 		ft_isdigit.c \
 		ft_isalnum.c \
@@ -61,17 +61,22 @@ DEP_FLAGS =  -MP -MD
 CFLAGS = -Wall -Wextra -Werror
 CC = cc
 
-all: $(LIB_NAME)
+all: $(NAME)
 
-$(LIB_NAME): $(OBJS)
-	ar rcs $(LIB_NAME) $^
+$(NAME): $(OBJS)
+	ar rcs $(NAME) $^
 
 $(OBJS) : %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o ./$@ $(DEP_FLAGS)
 
-.Phony: clean
+.Phony: all clean fclean re 
 
 clean:
 	rm -fr $(OBJS) $(DEP_FILES)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
 
 -include $(DEP_FILES)

@@ -6,7 +6,7 @@
 /*   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 17:30:43 by maurodri          #+#    #+#             */
-/*   Updated: 2023/10/19 17:42:02 by maurodri         ###   ########.fr       */
+/*   Updated: 2023/10/23 16:45:34 by maurodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	helper(long long num, int fd)
 	if (num < 10)
 	{
 		digit = '0' + (char) num;
-		write(fd, &digit, 1); 
+		write(fd, &digit, 1);
 	}
 	else
 	{

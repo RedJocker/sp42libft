@@ -6,11 +6,11 @@
 /*   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 17:23:23 by maurodri          #+#    #+#             */
-/*   Updated: 2023/10/14 17:42:31 by maurodri         ###   ########.fr       */
+/*   Updated: 2023/10/23 16:44:49 by maurodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isprint(int ch)
 {
-	return (ch >= 32 && ch <= 126); 
+	return (ch >= 32 && ch <= 126);
 }

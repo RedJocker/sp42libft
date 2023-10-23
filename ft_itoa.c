@@ -6,19 +6,11 @@
 /*   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 17:47:31 by maurodri          #+#    #+#             */
-/*   Updated: 2023/10/18 18:56:44 by maurodri         ###   ########.fr       */
+/*   Updated: 2023/10/23 16:44:16 by maurodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-typedef struct s_number
-{
-	size_t		len;
-	long long	num;
-	char		*str_num;
-	char		digit;
-}	t_number;
 
 static size_t	str_num_len(long long num)
 {
@@ -45,26 +37,29 @@ static inline char	ch_digit(char byte_digit)
 
 char	*ft_itoa(int n)
 {
-	t_number	x;
+	size_t		len;
+	long long	num;
+	char		*str_num;
+	char		digit;
 
-	x.num = (long long)n;
-	x.len = str_num_len(x.num);
-	x.str_num = malloc((x.len + 1) * sizeof(char));
-	if (!(x.str_num))
+	num = (long long)n;
+	len = str_num_len(num);
+	str_num = malloc((len + 1) * sizeof(char));
+	if (!(str_num))
 		return (NULL);
-	x.str_num[x.len--] = '\0';
-	if (x.num < 0)
+	str_num[len--] = '\0';
+	if (num < 0)
 	{
-		x.str_num[0] = '-';
-		x.num = -x.num;
+		str_num[0] = '-';
+		num = -num;
 	}
-	while (x.num > 9)
+	while (num > 9)
 	{
-		x.digit = (char)(x.num % 10);
-		x.str_num[x.len--] = ch_digit(x.digit);
-		x.num /= 10;
+		digit = (char)(num % 10);
+		str_num[len--] = ch_digit(digit);
+		num /= 10;
 	}
-	x.digit = (char)(x.num % 10);
-	x.str_num[x.len] = ch_digit(x.digit);
-	return (x.str_num);
+	digit = (char)(num % 10);
+	str_num[len] = ch_digit(digit);
+	return (str_num);
 }
