@@ -6,41 +6,43 @@
 /*   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 21:55:03 by maurodri          #+#    #+#             */
-/*   Updated: 2023/10/16 00:32:23 by maurodri         ###   ########.fr       */
+/*   Updated: 2023/10/26 09:59:46 by maurodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	reset_match(char **match, char **p_needle, const char *needle)
+static int	is_match(char *haystack, char *needle, size_t len)
 {
-	*match = NULL;
-	*p_needle = (char *) needle;
+	size_t	i;
+
+	i = 0;
+	while (i < len && haystack[i] && needle[i])
+	{
+		if (haystack[i] != needle[i])
+			return (0);
+		i++;
+	}
+	if (needle[i] == '\0')
+		return (1);
+	else
+		return (0);
 }
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	char	*match;
-	char	*p_needle;
 	size_t	i;
 
-	match = (char *) haystack;
-	p_needle = (char *) needle;
 	i = 0;
 	if (haystack == NULL && len == 0)
 		return (NULL);
-	while (haystack[i] && *p_needle && i < len)
+	else if (needle[0] == '\0')
+		return ((char *) haystack);
+	while (i < len && haystack[i])
 	{
-		if (match == NULL && haystack[i] == *p_needle)
-			match = (char *)(haystack + i);
-		else if (match != NULL && haystack[i] != *p_needle)
-			reset_match(&match, &p_needle, needle);
-		if (match != NULL)
-			p_needle++;
+		if (is_match((char *) haystack + i, (char *) needle, len - i))
+			return ((char *) haystack + i);
 		i++;
 	}
-	if (*p_needle == '\0')
-		return (match);
-	else
-		return (NULL);
+	return (NULL);
 }
