@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/19 18:37:17 by maurodri          #+#    #+#             */
-/*   Updated: 2023/10/19 18:46:24 by maurodri         ###   ########.fr       */
+/*   Created: 2023/10/24 15:03:46 by maurodri          #+#    #+#             */
+/*   Updated: 2023/10/24 15:03:46 by maurodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new_node)
+int	ft_lstsize(t_list *lst)
 {
-	t_list	*last_node;
+	int	len;
 
-	if (!lst)
-		return ;
-	last_node = ft_lstlast(*lst);
-	if (!last_node)
-		*lst = new_node;
-	else
-		last_node->next = new_node;
+	len = 0;
+	while (lst)
+	{
+		len++;
+		lst = lst->next;
+	}
+	return (len);
 }

@@ -6,7 +6,7 @@
 #    By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 16:14:38 by maurodri          #+#    #+#              #
-#    Updated: 2023/10/23 17:06:43 by maurodri         ###   ########.fr        #
+#    Updated: 2023/10/24 15:14:14 by maurodri         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -44,19 +44,22 @@ FILES = ft_isalpha.c \
 		ft_putchar_fd.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
-		ft_putnbr_fd.c \
-		ft_lstnew.c \
-		ft_lstadd_front.c \
-		ft_lstsize.c \
-		ft_lstlast.c \
-		ft_lstadd_back.c \
-		ft_lstdelone.c \
-		ft_lstclear.c \
-		ft_lstiter.c \
-		ft_lstmap.c
+		ft_putnbr_fd.c
+
+BONUS_FILES = ft_lstnew_bonus.c \
+			ft_lstadd_front_bonus.c \
+			ft_lstsize_bonus.c \
+			ft_lstlast_bonus.c \
+			ft_lstadd_back_bonus.c \
+			ft_lstdelone_bonus.c \
+			ft_lstclear_bonus.c \
+			ft_lstiter_bonus.c \
+			ft_lstmap_bonus.c
 
 DEP_FILES = $(patsubst %.c,%.d,$(FILES))
 OBJS = $(patsubst %.c,%.o,$(FILES))
+BONUS_DEP_FILES = $(patsubst %.c,%.d,$(BONUS_FILES))
+BONUS_OBJS = $(patsubst %.c,%.o,$(BONUS_FILES))
 DEP_FLAGS =  -MP -MD
 CFLAGS = -Wall -Wextra -Werror
 CC = cc
@@ -69,10 +72,16 @@ $(NAME): $(OBJS)
 $(OBJS) : %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o ./$@ $(DEP_FLAGS)
 
+$(BONUS_OBJS) : %.o : %.c
+	$(CC) $(CFLAGS) -c $< -o ./$@ $(DEP_FLAGS)
+
+bonus: $(OBJS) $(BONUS_OBJS)
+	ar rcs $(NAME) $^
+
 .Phony: all clean fclean re 
 
 clean:
-	rm -fr $(OBJS) $(DEP_FILES)
+	rm -fr $(OBJS) $(DEP_FILES) $(BONUS_OBJS) $(BONUS_DEP_FILES)
 
 fclean: clean
 	rm -f $(NAME)
