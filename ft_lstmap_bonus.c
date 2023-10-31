@@ -6,11 +6,24 @@
 /*   By: maurodri <maurodri@student.42sp...>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 15:03:44 by maurodri          #+#    #+#             */
-/*   Updated: 2023/10/31 19:30:52 by maurodri         ###   ########.fr       */
+/*   Updated: 2023/10/31 20:48:22 by maurodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static void	new_node(
+	t_list **node_ptr, void **content, t_list *lst, void *(*fun)(void *))
+{
+	*content = fun(lst->content);
+	*node_ptr = ft_lstnew(*content);
+}
+
+static t_list	*del_and_return_null(void **content, void (*del)(void *))
+{
+	del(*content);
+	return (NULL);
+}
 
 t_list	*ft_lstmap(t_list *lst, void *(*fun)(void *), void (*del)(void *))
 {
@@ -21,24 +34,18 @@ t_list	*ft_lstmap(t_list *lst, void *(*fun)(void *), void (*del)(void *))
 
 	if (!lst || !fun || !del)
 		return (NULL);
-	content = fun(lst->content);
-	new_lst = ft_lstnew(content);
+	new_node(&new_lst, &content, lst, fun);
 	if (!new_lst)
-	{
-		del(content);
-		return (NULL);
-	}
+		return (del_and_return_null(&content, del));
 	ptr = new_lst;
 	lst = lst->next;
 	while (lst)
 	{
-		content = fun(lst->content);
-		temp = ft_lstnew(content);
+		new_node(&temp, &content, lst, fun);
 		if (!temp)
 		{
-			del(content);
 			ft_lstclear(&new_lst, del);
-			return (NULL);
+			return (del_and_return_null(&content, del));
 		}
 		ptr->next = temp;
 		ptr = ptr->next;
