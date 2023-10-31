@@ -6,7 +6,7 @@
 /*   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 12:23:16 by maurodri          #+#    #+#             */
-/*   Updated: 2023/10/18 18:31:07 by maurodri         ###   ########.fr       */
+/*   Updated: 2023/10/31 17:53:54 by maurodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,13 @@ static size_t	count_splits(char const *str, char ch)
 
 static void	free_arr(char **arr)
 {
-	while (*arr)
+	char	**ptr;
+
+	ptr = arr;
+	while (*ptr)
 	{
-		free(*arr);
-		arr++;
+		free(*ptr);
+		ptr++;
 	}
 	free(arr);
 }
