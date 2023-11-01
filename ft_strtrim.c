@@ -6,12 +6,11 @@
 /*   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 01:01:27 by maurodri          #+#    #+#             */
-/*   Updated: 2023/10/18 12:20:10 by maurodri         ###   ########.fr       */
+/*   Updated: 2023/10/31 20:51:43 by maurodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static int	includes(char const *set, char ch)
 {
