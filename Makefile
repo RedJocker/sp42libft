@@ -6,7 +6,7 @@
 #    By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/14 16:14:38 by maurodri          #+#    #+#              #
-#    Updated: 2023/10/24 15:14:14 by maurodri         ###   ########.fr        #
+#    Updated: 2023/11/01 21:18:07 by maurodri         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -64,6 +64,10 @@ DEP_FLAGS =  -MP -MD
 CFLAGS = -Wall -Wextra -Werror
 CC = cc
 
+ifdef WITH_BONUS
+	OBJS += $(BONUS_OBJS)
+endif
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
@@ -72,11 +76,8 @@ $(NAME): $(OBJS)
 $(OBJS) : %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o ./$@ $(DEP_FLAGS)
 
-$(BONUS_OBJS) : %.o : %.c
-	$(CC) $(CFLAGS) -c $< -o ./$@ $(DEP_FLAGS)
-
 bonus: $(OBJS) $(BONUS_OBJS)
-	ar rcs $(NAME) $^
+	$(MAKE) WITH_BONUS=1
 
 .Phony: all clean fclean re 
 
