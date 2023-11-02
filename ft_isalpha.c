@@ -6,9 +6,11 @@
 /*   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 16:50:07 by maurodri          #+#    #+#             */
-/*   Updated: 2023/10/14 17:43:18 by maurodri         ###   ########.fr       */
+/*   Updated: 2023/11/02 18:26:43 by maurodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 static inline int	ft_isupper(int ch)
 {

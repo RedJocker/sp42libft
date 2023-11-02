@@ -6,9 +6,11 @@
 /*   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 17:23:23 by maurodri          #+#    #+#             */
-/*   Updated: 2023/10/23 16:44:49 by maurodri         ###   ########.fr       */
+/*   Updated: 2023/11/02 18:27:22 by maurodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_isprint(int ch)
 {

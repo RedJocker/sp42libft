@@ -6,9 +6,11 @@
 /*   By: maurodri <maurodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 21:05:34 by maurodri          #+#    #+#             */
-/*   Updated: 2023/10/15 21:22:38 by maurodri         ###   ########.fr       */
+/*   Updated: 2023/11/02 18:29:41 by maurodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_strrchr(const char *str, int ch)
 {
